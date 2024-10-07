@@ -6,6 +6,8 @@ class Program
 {
     static void Main()
     {
+        var startTimeTotal = DateTime.Now;
+      
         Random random = new Random();
         OrderManager orderManagers = new OrderManager();
 
@@ -23,6 +25,9 @@ class Program
 
         TaskManager taskManager = new TaskManager(orderManagers);
         taskManager.Process();
+
+        var endTimeTotal = DateTime.Now;
+        Console.WriteLine($"время обработки заказов {endTimeTotal.Subtract(startTimeTotal).TotalSeconds} секунд.");
     }
 
     class Order
